@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-h2 {
+h1, h2 {
   font-family: "Sanchez", "Helvetica Neue";
 }
 
@@ -41,6 +41,16 @@ h2 {
   color: #993300;
 }
 
+#footer,
+#social-icon {
+  clear: both;
+  padding-top: 
+}
+
+#footer {
+  padding: 20px;
+}
+
 /* GENERAL */
 
 body {
@@ -50,10 +60,6 @@ body {
 p {
   font-family: "Catamaran", "Helvetica Neue";
   font-size: 1.2em;
-  
-}
-
-#content {
   
 }
 
@@ -102,9 +108,28 @@ h3 {
 
 /* JOIM PAGE */
 
+#benefits {
+  text-align: left;
+  font-family: "Catamaran", "Helvetica Neue";
+}
+
+#benefits li {
+  font-size: 1.1em;
+  line-height: 175%
+}
+
+#meminfo p {
+  margin-bottom: 50px;
+}
+
+label {
+  font-size: 1em;
+}
+
 #joinform {
-  max-width: 60%;
+  max-width: 70%;
   margin: 0 auto;
+  float: left;
 }
 
 fieldset {
@@ -114,8 +139,24 @@ fieldset {
   background-color: #b3cce6;
 }
 
-#basicinfo, #addressinfo {
+fieldset ul, 
+fieldset div {
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+}
+
+#basicinfo, #addressinfo, #memtypes {
   float: left;
+  display: block;
+  clear: both;
+  left: 50%;
+  top: 50%;
+}
+
+#addressinfo {
+  padding-bottom: 10px
 }
 
 #basicinfo label {
@@ -123,13 +164,17 @@ fieldset {
   text-align: right;
   width: 100px;
   padding-right: 10px;
+  height: 25px;
+  margin-bottom: 5px;
 }
 
 #addressinfo label {
+  float: left;
   text-align: right;
   width: 100px;
   padding-right: 10px;
-  float: left;
+  height: 25px;
+  margin-bottom: 5px;
 }
 
 fieldset input {
@@ -137,24 +182,49 @@ fieldset input {
   
 }
 
+.addressfield,
+.basicfield {
+  height: 25px;
+  width: 260px;
+  margin-bottom: 5px;
+}
+
 #memtypes {
-  
+  display: block;
+  float: right;
 }
 
 #memtypes li {
   list-style-type: none;
+  
 }
 
 #memtypes label {
   text-align: right;
-  width: 100px;
+  width: 160px;
   padding-right: 10px;
-  
+  height: 25px;
+  margin-bottom: 5px;
+  float: left;
+}
+
+#memtypes input {
+  height: 25px;
+  margin-bottom: 5px;
+  width: 40px;
+}
+
+#submitbutton {
+  display: block;
+  clear: both;
+  margin: 20px auto;
+  height: 25px;
+  width: 75px;
+  font-family: "Sanchez", "Helvetica Neue"; 
+  font-size: .9em;
 }
 
 #membershiptotal {
-  padding: 20px 0;
+  padding: 10px 0;
+  display: inline-block
 }
-
-/* JOIN PAGE ASIDE */
-
