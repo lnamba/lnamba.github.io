@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>JACL Arizona Chapter</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500,700|Kreon:400,700|Sanchez|Signika:400,600,700" rel="stylesheet">
+    <script src="modernizr.custom.05819.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <nav>
+        <ul id="navbar">
+          <li><a href="about.html">About</a></li>
+          <li><a href="locate.html">Locate</a></li>
+          <li><a href="join.html" class="curLink">Join</a></li>
+        </ul>
+        <a href="index.html"><img id="jacl-logo" src="images/JACL.png" alt="JACL"></a>
+        <img id="cactus-logo" src="images/cactus.png" alt="JACL AZ">
+      </nav>
+      <img id="header-background" src="images/momiji.JPG" alt="background image">
+    </header>
+    <div id="content">
+      <div id="main-content">
+        <h2>Join</h2>
+        <p>If you would like to join the Arizona Chapter of JACL, please fill out and submit the form below. Thank you for your interest!</p>
+        <form id="joinform">
+          <!-- Create a membership/join form -->
+          <fieldset>
+            <h2>Membership Form</h2>
+            <div id="basicinfo">
+              <label for="fname">First Name:</label>
+              <input type="text" class="basicfield"><br>
+
+              <label for="lname">Last Name:</label>
+              <input type="text" class="basicfield"><br>
+
+              <label for="birthdate">Birthdate:</label>
+              <input type="text" class="basicfield"><br>
+            </div>
+            
+            <div id="addressinfo">
+              <label for="address">Address:</label>
+              <input type="text" class="addressfield"><br>
+              
+              <label for="street">Street:</label>
+              <input type="text" class="addressfield"><br>
+              
+              <label for="city">City:</label>
+              <input type="text" class="addressfield"><br>
+              
+              <label for="state">State:</label>
+              <input type="text" class="addressfield"><br>
+              
+              <label for="zip">Zip:</label>
+              <input type="text" class="addressfield"><br>
+            </div>
+            
+            <ul id="memtypes">
+              <li><label for="individual">Regular/Individual $60</label>
+              <input type="number" id="individual" name="quantity" min="0" value="0"></li>
+
+              <li><label for="family">Couple/Family $105</label>
+              <input type="number" id="family" name="quantity" min="0" value="0"></li>
+
+              <li><label for="student">Youth/Student $25</label>
+              <input type="number" id="student" name="quantity" min="0" value="0"></li>
+
+            </ul>
+            </fieldset>
+          </form> 
+          <aside id="membershiptotal">
+            <h2>Total Membership Cost: <span id="total"></span></h2>
+          </aside>
+<!--      <input type="submit" id="submitbutton" name="submitbutton" value="Submit">-->
+      </div>
+      <div id="footer">
+        <a href="https://www.facebook.com/JACL-Arizona-Chapter-166321336752860/"><img src="images/facebook.png" alt="Facebook Logo" class="social-icon"></a>
+        <footer>&copy; 2016 Lauren Namba</footer>
+      </div>
+    </div> 
+    <script src="jacl.js"></script>
+  </body>
+</html>

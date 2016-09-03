@@ -1,0 +1,160 @@
+/* HEADER */
+
+#header {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: "Sanchez", "Helvetica Neue";
+}
+
+#navbar {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#navbar li {
+  font-family: "Sanchez", "Helvetica Neue";
+  display: inline-block;
+  padding-right: 40px;
+  font-size: 1.5em;
+  text-align: center;
+  
+}
+
+#navbar li a {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#navbar li a:hover {
+  color: #993300;
+  text-decoration: underline;
+}
+
+#navbar .curLink{
+  color: #993300;
+}
+
+/* GENERAL */
+
+body {
+  margin: 0;
+}
+
+p {
+  font-family: "Catamaran", "Helvetica Neue";
+  font-size: 1.2em;
+  
+}
+
+#content {
+  
+}
+
+#main-content {
+  width: 90%;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+h3 {
+  font-family: "Sanchez", "Helvetica Neue";
+  font-size: 2em;
+}
+
+#footer {
+  font-family: "Catamaran", "Helvetica Neue";
+  text-align: center;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+/* IMAGES */
+
+#jacl-logo {
+  float: left;
+  height: 75px;
+}
+
+#cactus-logo {
+  width: 75px;
+  float: right;
+}
+
+#header-background {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  margin: 0;
+  display: block;
+}
+
+/* JOIM PAGE */
+
+#joinform {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+fieldset {
+  font-family: "Catamaran", "Helvetica Neue";
+  border: 3px solid;
+  border-radius: 15px;
+  background-color: #b3cce6;
+}
+
+#basicinfo, #addressinfo {
+  float: left;
+}
+
+#basicinfo label {
+  float: left;
+  text-align: right;
+  width: 100px;
+  padding-right: 10px;
+}
+
+#addressinfo label {
+  text-align: right;
+  width: 100px;
+  padding-right: 10px;
+  float: left;
+}
+
+fieldset input {
+  margin: 0 20px 0 0;
+  
+}
+
+#memtypes {
+  
+}
+
+#memtypes li {
+  list-style-type: none;
+}
+
+#memtypes label {
+  text-align: right;
+  width: 100px;
+  padding-right: 10px;
+  
+}
+
+#membershiptotal {
+  padding: 20px 0;
+}
+
+/* JOIN PAGE ASIDE */
+
