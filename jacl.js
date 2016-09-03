@@ -3,7 +3,8 @@ var totalCost = 0;
 
 /* 
 gets total memberships by multiplying number of memberships by cost of each 
-then updates the totalCost variable with the sum of all three membership totals
+then updates the totalCost variable with the sum of all three membership totals; 
+prints to the page
 */
 function memTotal(){
   // defines local variables - memTotal function
@@ -20,17 +21,12 @@ function reset(){
   document.getElementById("family").value = 0;
   document.getElementById("student").value = 0;
   memTotal();
-  events();
+  btnSubmit();
 }
 
-/* 
-adds event listener function 
-every time there is a change, the memTotal function will be triggered and each element total will be updates again
-*/
-function events(){
-  document.getElementById("individual").addEventListener("change", memTotal, false);
-  document.getElementById("family").addEventListener("change", memTotal, false);
-  document.getElementById("student").addEventListener("change", memTotal, false);
+// event listener for button - when user clicks, memTotal fires
+function btnSubmit(){
+  document.getElementById("submitbutton").addEventListener("click", memTotal, false);
 }
 
 // resets form back to orginal values each time the browser loads
