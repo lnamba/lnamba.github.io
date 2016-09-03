@@ -22,7 +22,27 @@
     </header>
     <div id="content">
       <div id="main-content">
-        <h2>Join</h2>
+        <h1>Member Benefits and Events</h1>
+        <div id="benefits">
+        <p>As a member, you'll have access to these benefits:</p>
+        <ul>
+          <li>National JACL Pacific Citizen newspaper bimonthly</li>
+          <li>Arizona JACL Roundup newsletter monthly</li>
+          <li>Local and National scholarship opportunities</li>
+          <li>JACL Credit Union Services</li>
+        </ul>
+          <p>In addition, the Arizona chapter offers many events throughout the year such as:</p>
+          <ul>
+            <li>Annual Picnic</li>
+            <li>Annual summer bowling league</li>
+            <li>Annual scholarship luncheon</li>
+            <li>Monthly women's activity group</li>
+            <li>Monthly board meeting (all members may attend)</li>
+            <li>and more!</li>
+          </ul>
+        </div>
+        <div id="meminfo">
+        <h1>Join</h1>
         <p>If you would like to join the Arizona Chapter of JACL, please fill out and submit the form below. Thank you for your interest!</p>
         <form id="joinform">
           <!-- Create a membership/join form -->
@@ -30,30 +50,30 @@
             <h2>Membership Form</h2>
             <div id="basicinfo">
               <label for="fname">First Name:</label>
-              <input type="text" class="basicfield"><br>
+              <input type="text" class="basicfield" id="fname"><br>
 
               <label for="lname">Last Name:</label>
-              <input type="text" class="basicfield"><br>
+              <input type="text" class="basicfield" id="lname"><br>
 
               <label for="birthdate">Birthdate:</label>
-              <input type="text" class="basicfield"><br>
+              <input type="text" class="basicfield" id="birthdate"><br>
             </div>
             
             <div id="addressinfo">
               <label for="address">Address:</label>
-              <input type="text" class="addressfield"><br>
+              <input type="text" class="addressfield" id="address"><br>
               
               <label for="street">Street:</label>
-              <input type="text" class="addressfield"><br>
+              <input type="text" class="addressfield" id="street"><br>
               
               <label for="city">City:</label>
-              <input type="text" class="addressfield"><br>
+              <input type="text" class="addressfield" id="city"><br>
               
               <label for="state">State:</label>
-              <input type="text" class="addressfield"><br>
+              <input type="text" class="addressfield" id="state"><br>
               
               <label for="zip">Zip:</label>
-              <input type="text" class="addressfield"><br>
+              <input type="text" class="addressfield" id="zip"><br>
             </div>
             
             <ul id="memtypes">
@@ -65,13 +85,17 @@
 
               <li><label for="student">Youth/Student $25</label>
               <input type="number" id="student" name="quantity" min="0" value="0"></li>
-
             </ul>
+            
+            <input type="button" id="submitbutton" value="Calculate">
+            
             </fieldset>
-          </form> 
-          <aside id="membershiptotal">
-            <h2>Total Membership Cost: <span id="total"></span></h2>
-          </aside>
+          </form>
+        </div>  
+        <aside>
+         <h2 id="membershiptotal">Total Membership Cost: <span id="total"></span></h2>
+         <img alt="natjacl-logo" src="images/jacl_logo.jpg">
+        </aside>
 <!--      <input type="submit" id="submitbutton" name="submitbutton" value="Submit">-->
       </div>
       <div id="footer">
