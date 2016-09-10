@@ -216,7 +216,7 @@ function getDistrict(){
       break;  
       // this displays when no input is given
     default:
-      messageArea.innerHTML = "Please type the full name of a U.S. state.";
+      messageArea.innerHTML = "Which U.S. state do you live in?";
       break;
   }
 }
