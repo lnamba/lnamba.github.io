@@ -228,3 +228,32 @@ fieldset input {
   padding: 10px 0;
   display: inline-block
 }
+
+/* LOCATE PAGE */
+
+#locateform {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+#locatefield {
+  font-family: "Catamaran", "Helvetica Neue";
+  border: 3px solid;
+  border-radius: 15px;
+  background-color: #b3cce6;
+}
+
+#districts li {
+  list-style: none;
+  font-family: "Catamaran", "Helvetica Neue";
+  font-size: 1.1em; 
+  padding: 8px;
+}
+
+#districts a,
+#districts a:visited {
+  text-decoration: none;
+  color: #5B1909;
+  padding: 5px;
+}
