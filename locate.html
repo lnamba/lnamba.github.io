@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500,700|Kreon:400,700|Sanchez|Signika:400,600,700" rel="stylesheet">
     <script src="modernizr.custom.05819.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
   </head>
   <body>
     <header id="header">
@@ -22,12 +23,41 @@
     </header>
     <div id="content">
       <div id="main-content">
-        <p>Thank you for visiting the homepage of the Japanese American Citizens League Arizona Chapter! Established in 1939, the Arizona Chapter is dedicated to preserving the history of the Japanese American story and culture through community activism and education. Please feel free to look around and learn more.</p>
+        <div>
+          <h1>Locate a Chapter</h1>
+          <p>Not in the Arizona area? With over 100 chapters and seven district councils throughout the nation, you can find out your nearest district here.</p>
+          <!-- Creates a new form for finding a nearby chapter -->
+          <form id="locateform"> 
+            <fieldset id="locatefield">
+               <h2 id="messagearea"></h2> <!-- Message prints here -->
+              <input id="state" type="text" value="">  <!-- Inputs user's state -->
+              <input type="button" id="locatebutton" value="Locate"> <!-- When user clicks button, message prints -->
+              <h2>Thank you for your interest!</h2>
+            </fieldset>
+          </form>   
+          
+          <!-- Below are links to where users can find more information about the district nearest to them -->
+        <div id="districts"> 
+          <h2>Please click your district below to visit its website, or to visit one for an active chapter in that district:</h2>
+          <ul>
+            <li><a href="https://pnwjacl.wordpress.com/" target="_blank">Pacific Northwest District Council</a></li>
+            <li><a href="http://www.jacl-ncwnp.org/" target="_blank">Northern California-Western Nevada-Pacific District Council</a></li>
+            <li><a href="https://www.facebook.com/ccdc.jacl/" target="_blank">Central California District Council</a></li>
+            <li><a href="http://www.jaclpsw.org/" target="_blank">Pacific Southwest District Council</a></li>
+            <li><a href="https://www.facebook.com/utahjacl/" target="_blank">Intermountain District Council (Utah Website)</a></li>
+            <li><a href="http://jaclchicago.org/" target="_blank">Midwestern District Council (Chicago Website)</a></li>
+            <li><a href="http://www.nejacl.org/" target="_blank">Eastern District Council (New England Website)</a></li>
+          </ul>
+          <h2>For more information on districts and chapters of the JACL, please click<a href="https://jacl.org/about/districts-and-chapters/" target="_blank">here</a>.</h2>
+        </div>
+            
+        </div>
       </div>
       <div id="footer">
         <a href="https://www.facebook.com/JACL-Arizona-Chapter-166321336752860/"><img src="images/facebook.png" alt="Facebook Logo" class="social-icon"></a>
         <footer>&copy; 2016 Lauren Namba</footer>
       </div>
     </div>  
+    <script src="jacl.js"></script>
   </body>
 </html>
