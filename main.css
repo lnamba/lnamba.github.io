@@ -132,15 +132,15 @@ label {
   float: left;
 }
 
-fieldset {
+#joinfield {
   font-family: "Catamaran", "Helvetica Neue";
   border: 3px solid;
   border-radius: 15px;
   background-color: #b3cce6;
 }
 
-fieldset ul, 
-fieldset div {
+#joinfield ul, 
+#joinfield div {
   left: 50%;
   top: 50%;
   width: auto;
@@ -187,6 +187,10 @@ fieldset input {
   height: 25px;
   width: 260px;
   margin-bottom: 5px;
+}
+
+#gender label {
+  padding-right: 5px;
 }
 
 #memtypes {
