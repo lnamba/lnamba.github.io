@@ -1,3 +1,40 @@
+<!--
+CIS166AA Case Project
+Name: Lauren Namba
+Updated: 
+-->
+
+<!-- Case Project Week 4 Code Explanation: Exception Handling
+  The form I chose to use JS exception handling was on my locate.html file. 
+I wanted to check for errors and notify the user with alert messages. 
+I used a few of the different debugging methods from Chapter 4 including:
+commenting out code (a personal favorite of mine); try throw and catch statements; and browser 
+debugging tools. 
+  I happened to have a difficult time on this chapter, mostly becuase I was 
+completely unfamiliar with the topic. When I tested code with comments, I 
+would try one bit of code, find that it worked somewhat and then comment it 
+out and rebuild it with tweaks that I hoped would change the functionality in some way. 
+  The try, throw and catch statements were new to me. It made sense when I read the chapter, but 
+implementing it was another story. I did need to ask for help on understanding how 
+to put the statements into practice. With a lot of testing, I managed to complete  
+a try statement to check if the field was blank. If it was, I had it throw an error
+message telling the user to enter a valid state. 
+  I also created another try statement to check if the value of the user's input 
+matched one of the values from my getDistrict() function, which locates the 
+nearest district to any US state. If it did not match any of the states in my switch 
+statement, it throws an error notifying the user that there is no such location found.
+  As I was reading the chapter, I had a hard time understanding how to use the debugger
+debugger tools in Chrome, even while walking through the tractor.htm/tuba.js activity 
+in the book. I decided to try it out with my code for practice and thought it was so 
+interesting how using the "step in" button, you can literally see every step of the 
+code that you wrote. I set a breakpoint at a part of the second try block and liked 
+watching as it checked the value of my if statement (in my try block) to the value that 
+was returned from another function. While I didn't understand it before, I have a better 
+grasp of how it can help you as a developer now. Actually before, I didn't know that the 
+debugging tools existed as part of the browser's developer tools.
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,6 +95,6 @@
         <footer>&copy; 2016 Lauren Namba</footer>
       </div>
     </div>  
-    <script src="jacl.js"></script>
+    <script src="locate.js"></script>
   </body>
 </html>
