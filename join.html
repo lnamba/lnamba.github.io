@@ -46,7 +46,7 @@
         <p>If you would like to join the Arizona Chapter of JACL, please fill out and submit the form below. Thank you for your interest!</p>
         <form id="joinform">
           <!-- Create a membership/join form -->
-          <fieldset>
+          <fieldset id="joinfield">
             <h2>Membership Form</h2>
             <div id="basicinfo">
               <label for="fname">First Name:</label>
@@ -74,6 +74,21 @@
               
               <label for="zip">Zip:</label>
               <input type="text" class="addressfield" id="zip"><br>
+              
+              <label for="phone">Phone:</label>
+              <input type="text" class="addressfield" id="phone"><br>
+              
+              <label for="email">Email:</label>
+              <input type="email" class="addressfield" id="email"><br>
+                
+            </div>
+            
+            <div id="gender">
+              <legend>Gender:</legend>
+              <label for="male">Male</label>
+              <input type="radio" name="gender" id="male" value="Male">
+              <label for="female">Female</label>
+              <input type="radio" name="gender" id="female" value="Female">
             </div>
             
             <ul id="memtypes">
