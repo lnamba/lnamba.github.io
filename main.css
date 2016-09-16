@@ -159,21 +159,15 @@ label {
   padding-bottom: 10px
 }
 
-#basicinfo label {
+#basicinfo label,
+#addressinfo label,
+#gender legend {
   float: left;
   text-align: right;
   width: 100px;
   padding-right: 10px;
   height: 25px;
-  margin-bottom: 5px;
-}
-
-#addressinfo label {
-  float: left;
-  text-align: right;
-  width: 100px;
-  padding-right: 10px;
-  height: 25px;
+  line-height: 2;
   margin-bottom: 5px;
 }
 
@@ -189,18 +183,17 @@ fieldset input {
   margin-bottom: 5px;
 }
 
-#gender label {
-  padding-right: 5px;
+#gender legend {
+  margin: 0 auto;
+  line-height: 1;
+  display: block;
 }
 
-#gender label {
-  padding-right: 5px;
+#gender .gend {
+  display: inline-block;
   float: left;
-}
-#male,
-#female {
-  float: left;
-  text-align: right;
+  line-height: 1;
+  padding-left: 10px;
 }
 
 #memtypes {
