@@ -193,6 +193,16 @@ fieldset input {
   padding-right: 5px;
 }
 
+#gender label {
+  padding-right: 5px;
+  float: left;
+}
+#male,
+#female {
+  float: left;
+  text-align: right;
+}
+
 #memtypes {
   display: block;
   float: right;
