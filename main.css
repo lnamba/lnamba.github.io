@@ -264,3 +264,28 @@ fieldset input {
   color: #5B1909;
   padding: 5px;
 }
+
+/* SECURITY PAGE */
+
+#intResources {
+  font-family: "Catamaran", "Helvetica Neue"; 
+  font-size: 1.25em;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 1.85em;
+}
+
+#webinfo li {
+  font-family: "Catamaran", "Helvetica Neue"; 
+  list-style: none;
+  font-size: 1.25em;
+  line-height: 1.85em;
+}
+
+#webinfo li:first-child{
+  margin-top: 50px;
+}
+
+#webinfo li:last-child{
+  margin-bottom: 50px;
