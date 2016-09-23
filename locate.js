@@ -8,7 +8,6 @@ Updated:
 
 // function gets value of input text area and writes a message to page based on location
 function getDistrict(){
-  "use strict";
   // these messages will print to page, depending on the state the user inputs
   var messageArea = document.getElementById("messagearea");
   var stateVal = document.getElementById("state").value.toLowerCase();
@@ -177,7 +176,7 @@ function getDistrict(){
       // this displays when no input is given
     default:
       messageArea.innerHTML = "Which U.S. state do you live in?";
-      return false;
+      return "errorFound";
       break;
   }
 }
@@ -187,6 +186,7 @@ function with try throw catch statements check to see if field is blank
 if so, error to please enter a state is thrown
 */
 function errorMes(){
+  var errorMessage = document.getElementById("errorMesArea");
   try {
     var tryState = document.getElementById("state").value;
     // checks input field for value
@@ -195,7 +195,7 @@ function errorMes(){
     }
   }
   catch(err){
-    window.alert(err);
+    errorMesArea.innerHTML = err;
     return false;
   }
 }
@@ -205,25 +205,35 @@ function to check whether value provided is valid US state
 if not, error that location is not found is thrown
 */
 function errorMes2(){
+  var errorMessage = document.getElementById("errorMesArea");
   var tryState = document.getElementById("state").value;
   try{
     /* Checks the value of the input field. If the default 
     value in the getDistrict() function was returned
     AND the input field was not blank, err2 is thrown.
     */
-    if(getDistrict() === false && tryState !== ""){
+    if(getDistrict() === "errorFound" && tryState !== ""){
       throw "Error: This location was not found."
     }
   }
   catch(err2){
-    window.alert(err2);
+    errorMesArea.innerHTML = err2;
     return false;
+  }
+}
+
+
+function clearErr(){
+  var errorMessage = document.getElementById("errorMesArea");
+  if(errorMessage !== "") {
+    document.getElementById("errorMesArea").innerHTML = "";   
   }
 }
   
 // resets the input to empty
 function resetLocate(){
   document.getElementById("state").value = "";
+  document.getElementById("errorMesArea").innerHTML = "";
   getDistrict();
   locateEventListeners();
 }
@@ -237,7 +247,7 @@ function locateEventListeners(){
     locateButton.attachEvent("onclick", getDistrict);
   }
   locateButton.addEventListener("click", errorMes, false);
-  locateButton.addEventListener("click", errorMes2, false); // testing this
+  locateButton.addEventListener("click", errorMes2, false);
 }
 
 // resets join form back to orginal values each time the browser loads
