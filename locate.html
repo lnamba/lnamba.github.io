@@ -52,6 +52,7 @@ debugging tools existed as part of the browser's developer tools.
           <li><a href="about.html">About</a></li>
           <li><a href="locate.html" class="curLink">Locate</a></li>
           <li><a href="join.html">Join</a></li>
+          <li><a href="security.html">Security</a></li>
         </ul>
         <a href="index.html"><img id="jacl-logo" src="images/JACL.png" alt="JACL"></a>
         <img id="cactus-logo" src="images/cactus.png" alt="JACL AZ">
@@ -67,9 +68,10 @@ debugging tools existed as part of the browser's developer tools.
           <form id="locateform"> 
             <fieldset id="locatefield">
                <h2 id="messagearea"></h2> <!-- Message prints here -->
-              <input id="state" type="text" value="">  <!-- Inputs user's state -->
+              <input id="state" type="text" value="" onkeydown="clearErr()">  <!-- Inputs user's state -->
               <input type="button" id="locatebutton" value="Locate"> <!-- When user clicks button, message prints -->
               <h2>Thank you for your interest!</h2>
+              <p id="errorMesArea"></p>
             </fieldset>
           </form>   
           
