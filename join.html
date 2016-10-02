@@ -21,34 +21,21 @@
       </nav>
       <img id="header-background" src="images/momiji.jpg" alt="background image">
     </header>
-    <div id="content">
-      <div id="main-content">
-        <h1>Member Benefits and Events</h1>
-        <div id="benefits">
-        <p>As a member, you'll have access to these benefits:</p>
-        <ul>
-          <li>National JACL Pacific Citizen newspaper bimonthly</li>
-          <li>Arizona JACL Roundup newsletter monthly</li>
-          <li>Local and National scholarship opportunities</li>
-          <li>JACL Credit Union Services</li>
-        </ul>
-          <p>In addition, the Arizona chapter offers many events throughout the year such as:</p>
-          <ul>
-            <li>Annual Picnic</li>
-            <li>Annual summer bowling league</li>
-            <li>Annual scholarship luncheon</li>
-            <li>Monthly women's activity group</li>
-            <li>Monthly board meeting (all members may attend)</li>
-            <li>and more!</li>
-          </ul>
-        </div>
-        <div id="meminfo">
-        <h1>Join</h1>
-        <p>If you would like to join the Arizona Chapter of JACL, please fill out and submit the form below. Thank you for your interest!</p>
-        <form id="joinform">
+    <div id="wrapper">
+      
+        <div id="joinintro">
+          <h1>Join</h1>
+          <p>If you would like to join the Arizona Chapter of JACL, please fill out and submit the form below. Thank you for your interest!</p>
+        </div> 
+      
+        <section id="joinform">
+          <form>
           <!-- Create a membership/join form -->
           <fieldset id="joinfield">
             <h2>Membership Form</h2>
+            <p id="formError"></p>
+            
+            <!-- below are fields for basic info -->
             <div id="basicinfo">
               <label for="fname">First Name:</label>
               <input type="text" class="basicfield" id="fname"><br>
@@ -56,77 +43,157 @@
               <label for="lname">Last Name:</label>
               <input type="text" class="basicfield" id="lname"><br>
 
-              <label for="birthdate">Birthdate:</label>
-              <input type="text" class="basicfield" id="birthdate"><br>
+              <label for="bday">Birthdate:</label>
+              <input type="text" class="basicfield" id="bday" placeholder="## / ## / ####"><br> 
+           </div>
+            
+           <p id="basicInfoErr"></p>
+            
+          <!-- below are option buttons  for gender selection -->
+           <div id="genderopt">
+              <legend>Gender:</legend>
+           
+              <input type="radio" name="Gender" id="male" value="Male">
+              <label for="male" class="gendlabel">Male</label>
+          
+              <input type="radio" name="Gender" id="female" value="Female">
+              <label for="female" class="gendlabel">Female</label><br>
             </div>
             
+            <p id="genderErr"></p>
+
+            <!-- below are fields for addres -->
             <div id="addressinfo">
               <label for="address">Address:</label>
               <input type="text" class="addressfield" id="address"><br>
-              
+
               <label for="street">Street:</label>
               <input type="text" class="addressfield" id="street"><br>
-              
+
               <label for="city">City:</label>
               <input type="text" class="addressfield" id="city"><br>
-              
-              <label for="state">State:</label>
-              <input type="text" class="addressfield" id="state"><br>
-              
-              <label for="zip">Zip:</label>
-              <input type="text" class="addressfield" id="zip"><br>
+             
+              <!-- below is a select for state selection -->
+              <label id="stateLabel" for="state">State:</label>
+              <select id="state">
+                <option value="Alabama">AL</option>
+                <option value="Alaska">AK</option>
+                <option value="Arizona">AZ</option>
+                <option value="Arkansas">AR</option>
+                <option value="California">CA</option>
+                <option value="Colorado">CO</option>
+                <option value="Connecticut">CT</option>
+                <option value="Delaware">DE</option>
+                <option value="District_of_Columbia">DC</option>
+                <option value="Florida">FL</option>
+                <option value="Georgia">GA</option>
+                <option value="Hawaii">HI</option>
+                <option value="Idaho">ID</option>
+                <option value="Illinois">IL</option>
+                <option value="Indiana">IN</option>
+                <option value="Iowa">IA</option>
+                <option value="Kansas">KS</option>
+                <option value="Kentucky">KY</option>
+                <option value="Louisiana">LA</option>
+                <option value="Maine">ME</option>
+                <option value="Maryland">MD</option>
+                <option value="Massachusetts">MA</option>
+                <option value="Michigan">MI</option>
+                <option value="Minnesota">MN</option>
+                <option value="Mississippi">MS</option>
+                <option value="Missouri">MO</option>
+                <option value="Montana">MT</option>
+                <option value="Nebraska">NE</option>
+                <option value="Nevada">NV</option>
+                <option value="New_Hampshire">NH</option>
+                <option value="New_Jersey">NJ</option>
+                <option value="New_Mexico">NM</option>
+                <option value="New_York">NY</option>
+                <option value="North_Carolina">NC</option>
+                <option value="North_Dakota">ND</option>
+                <option value="Ohio">OH</option>
+                <option value="Oklahoma">OK</option>
+                <option value="Oregon">OR</option>
+                <option value="Pennsylvania">PA</option>
+                <option value="Rhode_Island">RI</option>
+                <option value="South_Carolina">SC</option>
+                <option value="South_Dakota">SD</option>
+                <option value="Tennessee">TN</option>
+                <option value="Texas">TX</option>
+                <option value="Utah">UT</option>
+                <option value="Vermont">VT</option>
+                <option value="Virginia">VA</option>
+                <option value="Washington">WA</option>
+                <option value="West Virginia">WV</option>
+                <option value="Wisconsin">WI</option>
+                <option value="Wyoming">WY</option>
+              </select><br>
+
+              <label id="zipLabel" for="zip">Zip:</label>
+              <input type="text" id="zip"><br>
               
               <label for="phone">Phone:</label>
-              <input type="text" class="addressfield" id="phone"><br>
-              
+              <input type="text" class="addressfield" id="phone" placeholder="(###) ###-####"><br>
+
               <label for="email">Email:</label>
               <input type="email" class="addressfield" id="email"><br>
-                
             </div>
             
-            <div id="gender">
-              
-              <legend>Gender:</legend>
-              
-              <div class="gend">
-              <label for="male">Male</label>
-              <input type="radio" name="gender" id="male" value="Male">
-              </div>
-              
-              <div class="gend">
-              <label for="female">Female</label>
-              <input type="radio" name="gender" id="female" value="Female">
-              </div>
-              
-            </div>
-            
-            <ul id="memtypes">
+            <p id="addressErr"></p>
+            <p id="zipErr"></p>
+            <!-- below are membership types using option buttons -->
+            <div id="memtypes">
+            <ul>
               <li><label for="individual">Regular/Individual $60</label>
-              <input type="number" id="individual" name="quantity" min="0" value="0"></li>
+                <input type="radio" name="membertype" id="individual" value="Regular/Individual $60">
+              </li>
 
               <li><label for="family">Couple/Family $105</label>
-              <input type="number" id="family" name="quantity" min="0" value="0"></li>
+                <input type="radio" name="membertype" id="family" value="Couple/Family $105">
+              </li>
 
               <li><label for="student">Youth/Student $25</label>
-              <input type="number" id="student" name="quantity" min="0" value="0"></li>
+                <input type="radio" name="membertype" id="student" value="Youth/Student $25">
+              </li>
             </ul>
-            
-            <input type="button" id="submitbutton" value="Calculate">
-            
+            </div>
+            <p id="memberErr"></p>
+
+            <input type="button" id="submitbutton" value="Join">
+            <h2 id="membershiptotal">Total Membership Cost: <span id="total"></span></h2>
             </fieldset>
           </form>
-        </div>  
-        <aside>
-         <h2 id="membershiptotal">Total Membership Cost: <span id="total"></span></h2>
-         <img alt="natjacl-logo" src="images/jacl_logo.jpg">
-        </aside>
+        </section>
+        
+      
+        <div id="memperks">
+          <h2>Member Benefits and Events</h2>
+          <p>As a member, you'll have access to these benefits:</p>
+          <ul class="benefits">
+            <li>National JACL Pacific Citizen newspaper bimonthly</li>
+            <li>Arizona JACL Roundup newsletter monthly</li>
+            <li>Local and National scholarship opportunities</li>
+            <li>JACL Credit Union Services</li>
+          </ul>
+            <p>In addition, the Arizona chapter offers many events throughout the year such as:</p>
+            <ul class="benefits">
+              <li>Annual Picnic</li>
+              <li>Annual summer bowling league</li>
+              <li>Annual scholarship luncheon</li>
+              <li>Monthly women's activity group</li>
+              <li>Monthly board meeting (all members may attend)</li>
+              <li>and more!</li>
+            </ul>
+         
+          <img alt="natjacl-logo" src="images/jacl_logo.jpg">
+        </div>
+      
 <!--      <input type="submit" id="submitbutton" name="submitbutton" value="Submit">-->
       </div>
       <div id="footer">
         <a href="https://www.facebook.com/JACL-Arizona-Chapter-166321336752860/"><img src="images/facebook.png" alt="Facebook Logo" class="social-icon"></a>
         <footer>&copy; 2016 Lauren Namba</footer>
-      </div>
     </div> 
-    <script src="jacl.js"></script>
+    <script src="join.js"></script>
   </body>
 </html>
