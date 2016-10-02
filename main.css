@@ -108,18 +108,29 @@ h3 {
 
 /* JOIM PAGE */
 
-#benefits {
+#wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+.benefits {
   text-align: left;
   font-family: "Catamaran", "Helvetica Neue";
 }
 
-#benefits li {
+.benefits li {
   font-size: 1.1em;
   line-height: 175%
 }
 
-#meminfo p {
+h1, h2 {
+  text-align: center;
+}
+
+#joinintro p {
   margin-bottom: 50px;
+  text-align: center;
 }
 
 label {
@@ -127,9 +138,10 @@ label {
 }
 
 #joinform {
-  max-width: 70%;
+  max-width: 50%;
   margin: 0 auto;
   float: left;
+  margin-left: 15px;
 }
 
 #joinfield {
@@ -137,6 +149,19 @@ label {
   border: 3px solid;
   border-radius: 15px;
   background-color: #b3cce6;
+  padding: 30px;
+}
+
+#joinfield h2 {
+  text-align: center;
+  margin: auto 0;
+}
+
+#joinfield h2:last-child {
+  top: 50%;
+  left:50%;
+  clear: both;
+  display: block;
 }
 
 #joinfield ul, 
@@ -147,63 +172,111 @@ label {
   height: auto;
 }
 
-#basicinfo, #addressinfo, #memtypes {
+#basicinfo, #addressinfo, #memtypes, #genderopt {
   float: left;
   display: block;
   clear: both;
   left: 50%;
   top: 50%;
+  padding: 20px
 }
 
+
 #addressinfo {
-  padding-bottom: 10px
+  margin-top: 15px;
 }
 
 #basicinfo label,
 #addressinfo label,
-#gender legend {
+#genderopt legend{
   float: left;
   text-align: right;
   width: 100px;
   padding-right: 10px;
   height: 25px;
   line-height: 2;
-  margin-bottom: 5px;
 }
 
 fieldset input {
   margin: 0 20px 0 0;
-  
 }
 
+#basicinfo {
+ margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#addressinfo {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* #zip gets id of zip field, it is not inclided in .addressfield anymore */
 .addressfield,
-.basicfield {
+.basicfield,
+#zip{
   height: 25px;
-  width: 260px;
+  width: 175px;
   margin-bottom: 5px;
 }
 
-#gender legend {
-  margin: 0 auto;
-  line-height: 1;
-  display: block;
+#bday,
+#state,
+#zip{
+  height: 25px;
+  width: 80px;
 }
 
-#gender .gend {
-  display: inline-block;
+#state {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+#bday {
+  margin-bottom: 8px;
+}
+
+#genderopt {
+  text-align: left;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#genderopt .gendlabel {
+  text-align: left;
+  max-width: 55px;
+  margin-right: 30px;
   float: left;
-  line-height: 1;
-  padding-left: 10px;
+}
+
+#genderopt #male,
+#genderopt #female {
+  margin-top: 8px;
+  float: left;
+}
+
+#memperks {
+  padding-top: 8px;
+  width: 50%;
+  float: right;
+}
+
+#benefits {
+  padding-top: -20px;
+  display: inline;
+  max-width: 50%;
+  margin-right: 15px;
 }
 
 #memtypes {
-  display: block;
+  display: inline-block;
   float: right;
+  padding: 0 0 0 80px;
 }
 
 #memtypes li {
   list-style-type: none;
-  
+  line-height: 2em;
 }
 
 #memtypes label {
@@ -213,12 +286,6 @@ fieldset input {
   height: 25px;
   margin-bottom: 5px;
   float: left;
-}
-
-#memtypes input {
-  height: 25px;
-  margin-bottom: 5px;
-  width: 40px;
 }
 
 #submitbutton {
@@ -234,6 +301,13 @@ fieldset input {
 #membershiptotal {
   padding: 10px 0;
   display: inline-block
+}
+
+#memperks img {
+  margin: auto 0;
+ 
+  left: 50%;
+  top: 50%;
 }
 
 /* LOCATE PAGE */
