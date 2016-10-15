@@ -363,3 +363,39 @@ fieldset input {
 
 #webinfo li:last-child{
   margin-bottom: 50px;
+}
+
+/* CONTACT PAGE */
+
+#contactinfo {
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+#contactform {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+#contactfield {
+  font-family: "Catamaran", "Helvetica Neue";
+  border: 3px solid;
+  border-radius: 15px;
+  background-color: #b3cce6;
+  text-align: center;
+}
+
+#contactmonth,
+#contactday,
+#contactyear {
+  margin-top: 30px;
+  margin-right: 10px;
+  margin-bottom: 20px
+}
+
+#contactbutton {
+  margin-top: 30px; 
+  margin-left: 20px;
+}
