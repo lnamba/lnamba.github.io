@@ -220,6 +220,10 @@ fieldset input {
   margin-bottom: 5px;
 }
 
+#email {
+  margin-bottom: 30px; 
+}
+
 #bday,
 #state,
 #zip{
@@ -253,6 +257,23 @@ fieldset input {
 #genderopt #female {
   margin-top: 8px;
   float: left;
+}
+
+#meminterests p {
+  text-align: center;
+}
+
+#memtypes p {
+  display: inline;
+  text-align: center;
+  margin: 0 auto;
+  
+}
+
+#meminterests li {
+  text-decoration: none;
+  list-style-type: none;
+  line-height: 1.8em;
 }
 
 #memperks {
@@ -300,12 +321,13 @@ fieldset input {
 
 #membershiptotal {
   padding: 10px 0;
-  display: inline-block
+  display: inline-block;
 }
+
+
 
 #memperks img {
   margin: auto 0;
- 
   left: 50%;
   top: 50%;
 }
