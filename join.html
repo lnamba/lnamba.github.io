@@ -141,26 +141,42 @@
             
             <p id="addressErr"></p>
             <p id="zipErr"></p>
+            
+            <!-- below are interest using checkboxes -->
+            <div id="meminterests">
+              <p><strong>Interests (Optional - Check all that apply):</strong></p>
+              <ul>
+                <li><input type="checkbox" id="picnic" class="interests" value="Picnic"><label for="picnic" id="picnicid">Picnic</label></li>
+                <li><input type="checkbox" id="bowl" class="interests" value="Summer Bowling League"><label for="bowl" id="bowlid">Summer Bowling League</label></li>
+                <li><input type="checkbox" id="scholarship" class="interests" value="Scholarship Opportunities"><label for="scholarship" id="scholarshipid">Scholarship Opportunities</label></li>
+                <li><input type="checkbox" id="womens" class="interests" value="Women's Activities"><label for="womens" id="womensid">Women's Activities</label></li>
+                <li><input type="checkbox" id="meeting" class="interests" value="Monthly Board Meeting"><label for="meeting" id="meetingid">Monthly Board Meeting</label></li>
+                <li><input type="checkbox" id="volunteer" class="interests" value="Volunteering Opportunities"><label for="volunteer" id="volunteerid">Volunteering Opportunities</label></li>
+              </ul>
+            </div>
+            
             <!-- below are membership types using option buttons -->
             <div id="memtypes">
-            <ul>
-              <li><label for="individual">Regular/Individual $60</label>
-                <input type="radio" name="membertype" id="individual" value="Regular/Individual $60">
-              </li>
+              <p><strong>Membership Types:</strong></p>
+              <ul>
+                <li><label for="individual">Regular/Individual $60</label>
+                  <input type="radio" name="membertype" id="individual" value="Regular/Individual $60">
+                </li>
 
-              <li><label for="family">Couple/Family $105</label>
-                <input type="radio" name="membertype" id="family" value="Couple/Family $105">
-              </li>
+                <li><label for="family">Couple/Family $105</label>
+                  <input type="radio" name="membertype" id="family" value="Couple/Family $105">
+                </li>
 
-              <li><label for="student">Youth/Student $25</label>
-                <input type="radio" name="membertype" id="student" value="Youth/Student $25">
-              </li>
-            </ul>
+                <li><label for="student">Youth/Student $25</label>
+                  <input type="radio" name="membertype" id="student" value="Youth/Student $25">
+                </li>
+              </ul>
             </div>
             <p id="memberErr"></p>
 
             <input type="button" id="submitbutton" value="Join">
             <h2 id="membershiptotal">Total Membership Cost: <span id="total"></span></h2>
+            <h4 id="interestblock">Thank you for your interest in the following activities: <ul id="interestmessage"></ul></h4>
             </fieldset>
           </form>
         </section>
@@ -182,6 +198,7 @@
               <li>Annual scholarship luncheon</li>
               <li>Monthly women's activity group</li>
               <li>Monthly board meeting (all members may attend)</li>
+              <li>Volunteer opportunities</li>
               <li>and more!</li>
             </ul>
          
