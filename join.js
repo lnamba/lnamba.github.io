@@ -197,6 +197,7 @@ function getInterests() {
   var interests = document.querySelectorAll("#meminterests label");
   var interestMessage = document.getElementById("interestmessage");
   var interestBlock = document.getElementById("interestblock");
+  var arrayToString = document.getElementById("arrayToString");
  
   //for loop runs through each box to see if it is checked or not
   for (var i = 0; i < listItems.length; i++) {
@@ -221,7 +222,8 @@ function getInterests() {
         }
       }  
     }
-  }
+  } //next line gets the array userInterests and makes it a string
+  arrayToString.innerHTML = userInterests.join(", ");
 }
 
 /* function to validate form */
