@@ -140,8 +140,7 @@ label {
 #joinform {
   max-width: 50%;
   margin: 0 auto;
-  float: left;
-  margin-left: 15px;
+  float: left; 
 }
 
 #joinfield {
@@ -149,7 +148,15 @@ label {
   border: 3px solid;
   border-radius: 15px;
   background-color: #b3cce6;
-  padding: 30px;
+  padding: 50px;
+}
+
+#memperks {
+  max-width: 45%;
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+  float: right;
 }
 
 #joinfield h2 {
@@ -324,7 +331,14 @@ fieldset input {
   display: inline-block;
 }
 
+#interestblock {
+  max-width: 100%;
+  margin: 0 auto;
+}
 
+#arrayToString {
+  font-size: 1em;
+}
 
 #memperks img {
   margin: auto 0;
