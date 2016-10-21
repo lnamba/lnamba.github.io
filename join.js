@@ -9,7 +9,7 @@ Date: 10/1/16
 /* global variables */
 var formValidity = true;
 var totalCost = 0;
-
+var userInterests = [];
 /* 
 gets total memberships by multiplying number of memberships by cost of each 
 then updates the totalCost variable with the sum of all three membership totals; 
@@ -190,6 +190,40 @@ function validateMembership(){
   }
 }
 
+/* this function retrieves the users selections on interest checkboxes and depending if they check or uncheck each box, either adds or deletes each property from the userInterests array defined in the global variable section */
+function getInterests() {
+  // local variables
+  var listItems = document.querySelectorAll("#meminterests input");
+  var interests = document.querySelectorAll("#meminterests label");
+  var interestMessage = document.getElementById("interestmessage");
+  var interestBlock = document.getElementById("interestblock");
+ 
+  //for loop runs through each box to see if it is checked or not
+  for (var i = 0; i < listItems.length; i++) {
+    if (listItems[i].checked) { //if it is checked create new li stored in newInterest
+      var newInterest = document.createElement("li");
+      if (userInterests.indexOf(listItems[i].value) === -1) { //if the current checked box is not in the userInterest array already, add it with push() method
+          userInterests.push(listItems[i].value);
+          newInterest.innerHTML = listItems[i].value; //change the innerHTML of the new li to the currently checked box's value
+          interestMessage.appendChild(newInterest); //append new li to ul "interestMessage"  
+          interestBlock.style.display = "block"; //show results
+          interestMessage.style.display = "block";
+        }
+      } else { //if the box is not checked, create a new variable and get all lis in the ul "interestmessage"
+      var interestLis = document.querySelectorAll("#interestmessage li");
+      for (var j = 0; j < interestLis.length; j++) { //loop through the present lis in interestMessage 
+        /*if the current unchecked box is already in the array "userInterests" AND 
+          if its value is the same as the innerHTML of a present li that has been appended to the interestMessage element
+        */  
+        if ((userInterests.indexOf(listItems[i].value)) > -1 && (interestLis[j].innerHTML === listItems[i].value)){
+          interestMessage.removeChild(interestLis[j]); //remove that li from interestMessage and remove from array
+          userInterests.splice(j, 1); 
+        }
+      }  
+    }
+  }
+}
+
 /* function to validate form */
 function validateForm(evt){
   if(evt.preventDefault){
@@ -229,6 +263,7 @@ function joinEventListeners(){
     submit.addEventListener("click", validateGender, false);
     submit.addEventListener("click", validateAddress, false);
     submit.addEventListener("click", validateMembership, false);
+    submit.addEventListener("click", getInterests, false);
   } else if(submit.attachEvent){
     submit.attachEvent("onclick", validateForm);
     submit.attachEvent("onclick", validateBasicInfo);
@@ -236,6 +271,7 @@ function joinEventListeners(){
     submit.attachEvent("onclick", validateAddress);
     submit.attachEvent("onclick", validateMembership);
     submit.attachEvent("onclick", memTotal);
+    submit.attachEvent("onclick", getInterests);
   }
 }
 
