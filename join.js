@@ -42,11 +42,15 @@ function removeSelectDefault(){
 
 /* function to validate basic info fields: first, last, bday */
 function validateBasicInfo(){
-    var basicInfoInputs = document.querySelectorAll("#basicinfo input");
-    var joinErr = document.getElementById("basicInfoErr");
-    var basicInfoValidity = true;
-    var elementCount = basicInfoInputs.length;
-    var currentElement;
+  var basicInfoInputs = document.querySelectorAll("#basicinfo input");
+  var joinErr = document.getElementById("basicInfoErr");
+  var basicInfoValidity = true;
+  var elementCount = basicInfoInputs.length;
+  var currentElement;
+  var birthyear = document.getElementById("birthyear");
+  var birthyearErr = document.getElementById("birthyearErr");
+  var birthyearValidity = true;
+  
   try{
     for(var i = 0; i < elementCount; i++){
       currentElement = basicInfoInputs[i];
@@ -67,6 +71,28 @@ function validateBasicInfo(){
   catch(err){
     joinErr.innerHTML = "<strong>" + err + "</strong>";
     joinErr.style.textDecoration = "underline";
+    formValidity = false;
+  }
+  
+// uses regular expression to check if the birthdate is a valid 4-digit year between 1900-2016
+  try {
+   // check if birth year is between 1900 and 2016 
+    var birthyearCheck = /^(19[0-9]{2}|201[0-6]){1}$/;
+    if (birthyearCheck.test(birthyear.value) === false && birthyear.value !== "") { //if birthyear is not valid but a value is present, throw error message
+      birthyear.style.border = "2px red solid";
+      birthyearValidity = false;
+      throw "Please enter a  valid 4-digit birthyear.";
+    } else if (birthyearCheck.test(birthyear.value) === false) { //if birthyear is not valid and there is no value present
+      birthyear.style.border = "2px solid red";
+      birthyearValidity = false;
+    } else { //there is a valid birthyear present, remove red border and remove error
+      birthyear.style.border = "";
+      birthyearErr.innerHTML = "";
+    }
+  }
+  catch(err) {
+    birthyearErr.innerHTML = "<strong>" + err + "</strong>";
+    birthyearErr.style.textDecoration = "underline";
     formValidity = false;
   }
 }
@@ -108,6 +134,19 @@ function validateAddress(){
   var currentElement;
   var zipErr = document.getElementById("zipErr");
   var zip = document.getElementById("zip");
+  var zipValidity = true;
+  // declare new local variables for regular expression checks
+  var phone = document.getElementById("phone");
+  var phoneErr = document.getElementById("phoneErr");
+  var phoneCheckErr = document.getElementById("phoneCheckErr");
+  var phoneValidity = true;
+  var phoneCheckValidity = true;
+  var email = document.getElementById("email");
+  var emailErr = document.getElementById("emailErr");
+  var emailCheckErr = document.getElementById("emailCheckErr");
+  var emailValidity = true;  
+  var emailCheckValidity = true;
+  
   try{
     for(var i = 0; i < elementCount; i++){
       currentElement = addressInputs[i];
@@ -155,6 +194,51 @@ function validateAddress(){
   catch(err){
     zipErr.innerHTML = "<strong>" + err + "</strong>";
     zipErr.style.textDecoration = "underline";
+    formValidity = false;
+  }
+  
+  // uses regular expression to check if number meets one of the following patterns:
+      // xxx xxx xxxx 
+      // xxx-xxx-xxxx
+      // xxx.xxx.xxxx
+  try {
+     var phoneCheck = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+     if (phoneCheck.test(phone.value) === false && phone.value !== "") { //if it does not pass the regular expression test but has a value, throws error to enter a VALID number
+       phoneCheckValidity = false;
+       phone.style.border = "2px solid red";
+       throw "Please enter a valid phone number."
+     } else if (phoneCheck.test(phone.value) === false) { //this statement keeps the red border if the statement is incorrect even if there is no value
+       phoneCheckValidity = false;
+       phone.style.border = "2px solid red";
+     } else { // else, it is a valid number, so remove border and innerHTML property of error message
+       phone.style.border = "";
+       phoneCheckErr.innerHTML = "";
+     }
+   }
+   catch(err) {
+     phoneCheckErr.innerHTML = "<strong>" + err + "</strong>";
+     phoneCheckErr.style.textDecoration = "underline";
+     formValidity = false;
+   }
+  
+  // regular expression to check if email matches the normal email address pattern. There must be numbers/letters followed by an @, more letters/numbers followed by a period, then 2-6 letters for the domain identifier
+  try {
+    var emailCheck = /^[_0-9A-Z-a-z\\-]+(\.[_0-9A-Za-z\\-]+)*@[0-9A-Za-z\\-]+(\.[0-9A-Z-a-z\\-]+)*(\.[a-z]{2,6})$/;
+    if (emailCheck.test(email.value) === false && email.value !== "") { // if email is invalid but the user has entered some input
+      email.style.border = "2px red solid";
+      emailCheckValidity = false;
+      throw "Please enter a valid email address."
+    } else if (emailCheck.test(email.value) === false) { // if the email is invalid and the user has not entered any input
+      email.style.border = "2px solid red";
+      emailCheckValidity = false;
+    } else { //otherwise there is a valid email entered, so remove red border and error message
+      email.style.border = "";
+      emailCheckErr.innerHTML = "";
+    }
+  }
+  catch(err) {
+    emailCheckErr.innerHTML = "<strong>" + err + "</strong>";
+    emailCheckErr.style.textDecoration = "underline";
     formValidity = false;
   }
 }
