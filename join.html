@@ -43,11 +43,12 @@
               <label for="lname">Last Name:</label>
               <input type="text" class="basicfield" id="lname"><br>
 
-              <label for="bday">Birthdate:</label>
-              <input type="text" class="basicfield" id="bday" placeholder="## / ## / ####"><br> 
+              <label for="birthyear">Year of Birth:</label>
+              <input type="text" class="basicfield" id="birthyear"><br> 
            </div>
             
            <p id="basicInfoErr"></p>
+           <p id="birthyearErr"></p>
             
           <!-- below are option buttons  for gender selection -->
            <div id="genderopt">
@@ -131,9 +132,9 @@
 
               <label id="zipLabel" for="zip">Zip:</label>
               <input type="text" id="zip"><br>
-              
+
               <label for="phone">Phone:</label>
-              <input type="text" class="addressfield" id="phone" placeholder="(###) ###-####"><br>
+              <input type="text" class="addressfield" id="phone"><br>
 
               <label for="email">Email:</label>
               <input type="email" class="addressfield" id="email"><br>
@@ -141,6 +142,10 @@
             
             <p id="addressErr"></p>
             <p id="zipErr"></p>
+            <p id="phoneErr"></p>
+            <p id="phoneCheckErr"></p>
+            <p id="emailErr"></p>
+            <p id="emailCheckErr"></p>
             
             <!-- below are interest using checkboxes -->
             <div id="meminterests">
