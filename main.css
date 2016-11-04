@@ -393,12 +393,28 @@ fieldset input {
   line-height: 1.85em;
 }
 
+/*
 #webinfo li:first-child{
   margin-top: 50px;
 }
+*/
 
+/*
 #webinfo li:last-child{
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+}
+*/
+
+
+#getlocation, #getinfo {
+  margin: 20px;
+}
+
+#map {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 /* CONTACT PAGE */
