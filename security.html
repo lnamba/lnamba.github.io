@@ -24,7 +24,7 @@
       <img id="header-background" src="images/momiji.jpg" alt="background image">
     </header>
     <div id="content">
-      <div id="main-content">
+      <div id="main-content"><!-- Three web resources -->
         <h1>What is Web Security?</h1>
         <p>Everyone should know and understand how to navigate the web safely. Whether for yourself or your children, it is important to familiarize yourself with web security. Please follow the links below to find out more:</p>
         <ul id="intResources">
@@ -40,7 +40,7 @@
         </ul>
         <h1>What Information is Available on the Web?</h1>
         <p>Most people aren't aware that personal data about their web browser and computer are readily available to sites and apps online. Find out what information is available to others by clicking the "Get Info" button below:</p>
-        <ul id="webinfo">
+        <ul id="webinfo"><!-- List of properties available to websites and apps -->
           <li></li>
           <li></li>
           <li></li>
@@ -48,13 +48,23 @@
           <li></li>
           <li></li>
         </ul>
-        <input type="button" name="GetInfo" id="getinfo" value="Get Info" >
+        <input type="button" name="GetInfo" id="getinfo" value="Get Info">
+        <div id="locationinfo">
+        <p>In addition, browsers can also access your location using your latitude and longtitude coordinates. Check it out below:</p>
+        
+        <input type="button" name="GetLocation" id="getlocation" value="Get Location" >
+        <p id="coordinates"></p>
+        <div id="map"></div>
+        </div>
       </div>
+      
       <div id="footer">
         <a href="https://www.facebook.com/JACL-Arizona-Chapter-166321336752860/"><img src="images/facebook.png" alt="Facebook Logo" class="social-icon"></a> <!-- Link to Facebook -->
         <footer>&copy; 2016 Lauren Namba</footer>
       </div>
     </div>  
+<!--    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>-->
+<!--    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>-->
     <script src="security.js"></script>
   </body>
 </html>
