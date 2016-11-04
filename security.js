@@ -28,14 +28,15 @@ function reset(){
 function loadMap(){
   if (typeof google !== 'object') {
     var script = document.createElement("script");
-    script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=getLocation";
+//    script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=getLocation";
+    script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&key=AIzaSyAihNodhBTdz2DLtT7dnaQqWc5gHn0YH74&callback=getLocation";
     document.body.appendChild(script);
   }
 }
 
 // gets the current position of the device - if request is successful, createMap() is called and if it fails, fail() is called
 function getLocation(){
-  waitForUser = setTimeout(fail, 10000); // if after 10 seconds user doesn't respond, call fail() function
+  waitForUser = setTimeout(fail, 10000); // if after 10 seconds
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(createMap, fail, {timeout: 10000});
   } else {
