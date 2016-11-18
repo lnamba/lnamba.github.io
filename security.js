@@ -1,81 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>JACL Arizona Chapter</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-<!-- used Google fonts here to add unique type -->
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500,700|Kreon:400,700|Sanchez|Signika:400,600,700" rel="stylesheet"> 
-<!-- Modernizr script -->    
-<!--    <script src="modernizr.custom.05819.js"></script>-->
-  </head>
-  <body>
-    <header id="header">
-      <nav>
-        <ul id="navbar">
-          <li><a href="about.html">About</a></li> <!-- This section is the about page -->
-          <li><a href="locate.html">Locate</a></li> <!-- Locating a chapter near you page -->
-          <li><a href="join.html">Join</a></li> <!-- Membership info -->
-          <li><a href="security.html" class="curLink">Security</a></li>
-        </ul>
-        <a href="index.html"><img id="jacl-logo" src="images/JACL.png" alt="JACL"></a>
-        <img id="cactus-logo" src="images/cactus.png" alt="JACL AZ">
-      </nav>
-      <img id="header-background" src="images/momiji.jpg" alt="background image">
-    </header>
-    <div id="content">
-      <div id="main-content"><!-- Three web resources -->
-        <h1>What is Web Security?</h1>
-        <p>Everyone should know and understand how to navigate the web safely. Whether for yourself or your children, it is important to familiarize yourself with web security. Please follow the links below to find out more:</p>
-        <ul id="intResources">
-          <li>
-            <strong><a href="https://www.microsoft.com/about/philanthropies/youthspark/youthsparkhub/programs/onlinesafety/resources/" target="_blank">YouthSpark Hub</a></strong>, from Microsoft, provides links to informative tips for kids, teens and parents about how to use the Web safely at work, home, and school. In addition, there are resources that address youth-related topics such as cyberbullying, social networking, and online gaming.
-          </li>
-          <li>
-            <strong><a href="https://staysafeonline.org/" target="_blank">StaySafeOnline.org</a></strong> is a great website for anyone to learn about being safe on the web. There are resources for parents, teachers, teenagers and kids. These resources cover topics such as Internet viruses, Cybercrime (fraud, identity theft, etc.), and Smartphone Internet usage.
-          </li>
-          <li>
-            <strong><a href="http://www.connectsafely.org/" target="_blank">ConnectSafely.org</a></strong> provides several resources and guides for people of all ages. Much like a blog, the website has many articles regarding a wide range of topics of interest to everyone from kids to senior citizens.
-          </li> 
-        </ul>
-        <h1>What Information is Available on the Web?</h1>
-        <p>Most people aren't aware that personal data about their web browser and computer are readily available to sites and apps online. Find out what information is available to others by clicking the "Get Info" button below:</p>
-        <ul id="webinfo"><!-- List of properties available to websites and apps -->
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <input type="button" name="GetInfo" id="getinfo" value="Get Info">
-        <div id="locationinfo">
-        <p>In addition, browsers can also access your location using your latitude and longtitude coordinates. Check it out below:</p>
-        
-        <input type="button" name="GetLocation" id="getlocation" value="Get Location" >
-<!--        <p id="coordinates"></p>-->
-        <div id="map"></div>
-          
-         
-        <div id="weather"></div> 
-          <p>Finally, here is a look at how a browser can get the weather of a specific location using an API called OpenWeatherMap. Please type in your zip code below to try it out:</p> 
-          <input type="text" id="zipweather">
-          <div id="weatherfield">
-            <p id="city"></p>
-            <p id="temp"></p>
-            <p id="conditions"></p>
-          </div>
-          
-          <p id="weathererror"></p>
-          <input type="button" name="GetWeather" id="getweather" value= "Get Weather">
-        </div>
-      </div>
-      
-      <div id="footer">
-        <a href="https://www.facebook.com/JACL-Arizona-Chapter-166321336752860/"><img src="images/facebook.png" alt="Facebook Logo" class="social-icon"></a> <!-- Link to Facebook -->
-        <footer>&copy; 2016 Lauren Namba</footer>
-      </div>
-    </div>  
-    <script src="security.js"></script>
-  </body>
-</html>
+"use strict";
+
+//declares local variables, assigning each li tag a variable name
+var appName = document.querySelectorAll("#webinfo li")[0];
+var appVersion = document.querySelectorAll("#webinfo li")[1];
+var platform = document.querySelectorAll("#webinfo li")[2];
+var screenHeight = document.querySelectorAll("#webinfo li")[3];
+var screenWidth = document.querySelectorAll("#webinfo li")[4];
+var pixelDepth = document.querySelectorAll("#webinfo li")[5];
+var waitForUser;
+var httpRequest = false;
+var yourWeather;
+var temp;
+var conditions;
+var weatherField = document.getElementById("weatherfield");
+var getWeather = document.getElementById("getweather");
+var weatherError = document.getElementById("weathererror");
+
+// resets innerHTML of variables to open strings
+function reset(){
+  appName.innerHTML = "";
+  appVersion.innerHTML = "";
+  platform.innerHTML = "";
+  screenHeight.innerHTML = "";
+  screenWidth.innerHTML = "";
+  pixelDepth.innerHTML = "";
+//  getWebInfo();
+  document.getElementById("getlocation").addEventListener("click", loadMap, false);
+  document.getElementById("map").style.display = "none";
+//  createMap();
+//  getLocation();
+  document.getElementById("getweather").addEventListener("click", loadWeather, false);
+  document.getElementById("getweather").addEventListener("click", validateWeather, false);
+}
+
+// downloads map if not already downloaded
+function loadMap(){
+  if (typeof google !== 'object') {
+    var script = document.createElement("script");
+//    script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=getLocation";
+    script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAihNodhBTdz2DLtT7dnaQqWc5gHn0YH74&callback=getLocation";
+    document.body.appendChild(script);
+  }
+}
+
+// gets the current position of the device - if request is successful, createMap() is called and if it fails, fail() is called
+function getLocation(){
+  waitForUser = setTimeout(fail, 10000); // if after 10 seconds
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(createMap, fail, {timeout: 10000});
+  } else {
+    fail();
+  }
+}
+
+// creates the map on the page
+function createMap(position){
+  clearTimeout(waitForUser);
+  document.getElementById("map").style.display = "block";
+//  console.log("Longitude: " + position.coords.longitude);
+//  console.log("Latitude: " + position.coords.latitude);
+//  console.log("Altitude: " + position.coords.altitude);
+  var currentLatitude = position.coords.latitude; // user's latitude
+  var currentLongitude = position.coords.longitude; // user's longitude
+  var currentAltitude = position.coords.altitude; // user's altitude
+  var mapOptions = { 
+    center: new google.maps.LatLng(currentLatitude, currentLongitude),
+    zoom: 12
+  };
+  var marker = new google.maps.Marker({ // creates a marker of user's position on the map
+    position: new google.maps.LatLng(currentLatitude, currentLongitude),
+    map: map
+  });
+  
+  // creates the map and the marker
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  marker.setMap(map);
+  
+  // handles error when user's altitude shows as "null" (in Chrome browsers)
+  var coordinates = document.getElementById("coordinates");
+  if (currentAltitude === null){ 
+    coordinates.innerHTML = "Latitude: " + currentLatitude + ", Longitude: " + currentLongitude + ", Current altitude not found."
+  } else { // else if altitude is available, show it
+    coordinates.innerHTML = "Latitude: " + currentLatitude + ", Longitude: " + currentLongitude + ", Altitude: " + currentAltitude;
+  }
+}
+
+// handles failed requests for location - displays error
+function fail(){
+//  console.log("Your location could not be found.");
+  document.getElementById("coordinates").innerHTML = "<strong>Current location could not be found.</strong>";
+  document.getElementById("coordinates").style.color = "red";
+}
+
+/* Chapter 11 Code */
+
+// function resquests location, temperature, and weather condition data from OpenWeatherMap api
+function loadWeather(){
+  // instantiates an XMLHttpRequest object and store in a var called httpRequest
+  var httpRequest = new XMLHttpRequest();
+  // gets the user's inputed zip code
+  var loc = document.getElementById("zipweather").value;
+  // opens a GET request - includes the URL of the api data for getting weather by a user's zip code, also converts to imperial units
+  // The end of the URL is the API key downloaded from the OpenWeatherMap site
+  httpRequest.open("GET","http://api.openweathermap.org/data/2.5/weather?zip=" + loc + ",us&units=imperial&appid=3313b9d0c68fb1fc126ff0ebed305e65", false);
+  // sends the request
+  httpRequest.send(null);
+  console.log(httpRequest.status);
+  console.log(httpRequest.readyState);
+  // if the request is complete and was successful, do the following
+  if(httpRequest.readyState === 4 && httpRequest.status === 200) {
+    // parses the data
+    yourWeather = JSON.parse(httpRequest.responseText);
+    // changes the values of the temp and conditions variables to the API calls (I got these from the OpenWeatherMap API documentation)
+    temp = Math.round(yourWeather.main.temp);
+    conditions = yourWeather.weather[0].main;
+    // changes CSS props to create a fieldset with the user's weather data from API
+    weatherField.style.display = "inline-block";
+    weatherField.style.border = "3px solid black";
+    weatherField.style.borderRadius = "15px";
+    weatherField.style.padding = "25px 50px";
+    weatherField.style.margin = "30px auto";
+    weatherField.style.backgroundColor = "#b3cce6";
+    weatherField.style.maxWidth = "100%";
+    getWeather.style.display = "block";
+    getWeather.style.margin = "0 auto";
+    // prints the current city, temperature, and conditions
+    document.getElementById("city").innerHTML = "Current Location: " + yourWeather.name;
+    document.getElementById("temp").innerHTML = "Current Temperature: " + temp + "°F.";
+    document.getElementById("conditions").innerHTML = "Current Conditions: " + conditions;
+  } else {
+    weatherField.style.display = "none";
+  }
+}
+
+// function validates the zip field and checks for a 5-digit value
+function validateWeather(){
+  var loc = document.getElementById("zipweather");
+  var validWeather = true;
+  
+  // if the field is empty, if the value is not a number, or if value's length is > 0 and not 5, throw error
+  try {
+    if(loc.value === "" || (isNaN(loc.value)) || (loc.value.length !== 5) && (loc.value !== "")){
+      validWeather = false;
+      loc.style.border = "2px solid red";
+      weatherField.style.display = "none";
+      throw "Please enter a 5-digit zip code.";
+    } else {
+      loc.style.border = "";
+      weatherError.innerHTML = "";
+    }
+  }
+  catch(err) {
+    weatherError.innerHTML = "<strong>" + err + "</strong>";
+    weatherError.style.color = "red";
+  }
+}
+
+// uses Navigator object to gather and display information about a user's computer
+function getWebInfo(){
+  appName.innerHTML = "Your web browser name is: " + "<strong>" + navigator.appName + "</strong>.";
+  appVersion.innerHTML = "Your web browser version is: "  + "<strong>" + navigator.appVersion + "</strong>.";
+  platform.innerHTML = "Your computer's platform is: " + "<strong>" + navigator.platform + "</strong>.";
+  screenHeight.innerHTML = "Your browser screen's height is: " + "<strong>" + screen.height + " pixels</strong>.";
+  screenWidth.innerHTML = "Your browser screen's width is: " + "<strong>" + screen.width + " pixels</strong>.";
+  pixelDepth.innerHTML = "Your display screen's color resolution is: " + "<strong>" + screen.pixelDepth + " bits per pixel</strong>."
+}
+
+//calls getWebInfo function
+var getInfoButton = document.getElementById("getinfo");
+getInfoButton.addEventListener("click", getWebInfo, false);
+
+
+
+//reset page
+  if(window.addEventListener){
+    window.addEventListener("load", reset, false);
+  } else if (window.attachEvent){
+    window.attachEvent("onload", reset, false);
+  }
