@@ -55,6 +55,19 @@
         <input type="button" name="GetLocation" id="getlocation" value="Get Location" >
         <p id="coordinates"></p>
         <div id="map"></div>
+          
+         
+        <div id="weather"></div> 
+          <p>Finally, here is a look at how a browser can get the weather of a specific location using an API called OpenWeatherMap. Please type in your zip code below to try it out:</p> 
+          <input type="text" id="zipweather">
+          <div id="weatherfield">
+            <p id="city"></p>
+            <p id="temp"></p>
+            <p id="conditions"></p>
+          </div>
+          
+          <p id="weathererror"></p>
+          <input type="button" name="GetWeather" id="getweather" value= "Get Weather">
         </div>
       </div>
       
@@ -63,8 +76,6 @@
         <footer>&copy; 2016 Lauren Namba</footer>
       </div>
     </div>  
-<!--    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>-->
-<!--    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>-->
     <script src="security.js"></script>
   </body>
 </html>
