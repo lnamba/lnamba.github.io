@@ -8,6 +8,13 @@ var screenHeight = document.querySelectorAll("#webinfo li")[3];
 var screenWidth = document.querySelectorAll("#webinfo li")[4];
 var pixelDepth = document.querySelectorAll("#webinfo li")[5];
 var waitForUser;
+var httpRequest = false;
+var yourWeather;
+var temp;
+var conditions;
+var weatherField = document.getElementById("weatherfield");
+var getWeather = document.getElementById("getweather");
+var weatherError = document.getElementById("weathererror");
 
 // resets innerHTML of variables to open strings
 function reset(){
@@ -22,6 +29,8 @@ function reset(){
   document.getElementById("map").style.display = "none";
 //  createMap();
 //  getLocation();
+  document.getElementById("getweather").addEventListener("click", loadWeather, false);
+  document.getElementById("getweather").addEventListener("click", validateWeather, false);
 }
 
 // downloads map if not already downloaded
@@ -83,6 +92,70 @@ function fail(){
   document.getElementById("coordinates").style.color = "red";
 }
 
+/* Chapter 11 Code */
+
+// function resquests location, temperature, and weather condition data from OpenWeatherMap api
+function loadWeather(){
+  // instantiates an XMLHttpRequest object and store in a var called httpRequest
+  var httpRequest = new XMLHttpRequest();
+  // gets the user's inputed zip code
+  var loc = document.getElementById("zipweather").value;
+  // opens a GET request - includes the URL of the api data for getting weather by a user's zip code, also converts to imperial units
+  // The end of the URL is the API key downloaded from the OpenWeatherMap site
+  httpRequest.open("GET","http://api.openweathermap.org/data/2.5/weather?zip=" + loc + ",us&units=imperial&appid=3313b9d0c68fb1fc126ff0ebed305e65", false);
+  // sends the request
+  httpRequest.send(null);
+  console.log(httpRequest.status);
+  console.log(httpRequest.readyState);
+  // if the request is complete and was successful, do the following
+  if(httpRequest.readyState === 4 && httpRequest.status === 200) {
+    // parses the data
+    yourWeather = JSON.parse(httpRequest.responseText);
+    // changes the values of the temp and conditions variables to the API calls (I got these from the OpenWeatherMap API documentation)
+    temp = Math.round(yourWeather.main.temp);
+    conditions = yourWeather.weather[0].main;
+    // changes CSS props to create a fieldset with the user's weather data from API
+    weatherField.style.display = "inline-block";
+    weatherField.style.border = "3px solid black";
+    weatherField.style.borderRadius = "15px";
+    weatherField.style.padding = "25px 50px";
+    weatherField.style.margin = "30px auto";
+    weatherField.style.backgroundColor = "#b3cce6";
+    weatherField.style.maxWidth = "100%";
+    getWeather.style.display = "block";
+    getWeather.style.margin = "0 auto";
+    // prints the current city, temperature, and conditions
+    document.getElementById("city").innerHTML = "Current Location: " + yourWeather.name;
+    document.getElementById("temp").innerHTML = "Current Temperature: " + temp + "°F.";
+    document.getElementById("conditions").innerHTML = "Current Conditions: " + conditions;
+  } else {
+    weatherField.style.display = "none";
+  }
+}
+
+// function validates the zip field and checks for a 5-digit value
+function validateWeather(){
+  var loc = document.getElementById("zipweather");
+  var validWeather = true;
+  
+  // if the field is empty, if the value is not a number, or if value's length is > 0 and not 5, throw error
+  try {
+    if(loc.value === "" || (isNaN(loc.value)) || (loc.value.length !== 5) && (loc.value !== "")){
+      validWeather = false;
+      loc.style.border = "2px solid red";
+      weatherField.style.display = "none";
+      throw "Please enter a 5-digit zip code.";
+    } else {
+      loc.style.border = "";
+      weatherError.innerHTML = "";
+    }
+  }
+  catch(err) {
+    weatherError.innerHTML = "<strong>" + err + "</strong>";
+    weatherError.style.color = "red";
+  }
+}
+
 // uses Navigator object to gather and display information about a user's computer
 function getWebInfo(){
   appName.innerHTML = "Your web browser name is: " + "<strong>" + navigator.appName + "</strong>.";
@@ -100,10 +173,8 @@ getInfoButton.addEventListener("click", getWebInfo, false);
 
 
 //reset page
-//function resetPage(){
   if(window.addEventListener){
     window.addEventListener("load", reset, false);
   } else if (window.attachEvent){
     window.attachEvent("onload", reset, false);
   }
-//}
