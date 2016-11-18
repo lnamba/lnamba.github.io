@@ -104,7 +104,7 @@ function loadWeather(){
   // The end of the URL is the API key downloaded from the OpenWeatherMap site
   httpRequest.open("GET","http://api.openweathermap.org/data/2.5/weather?zip=" + loc + ",us&units=imperial&appid=3313b9d0c68fb1fc126ff0ebed305e65", false);
   // sends the request
-  httpRequest.send(null);
+  httpRequest.send();
   console.log(httpRequest.status);
   console.log(httpRequest.readyState);
   // if the request is complete and was successful, do the following
