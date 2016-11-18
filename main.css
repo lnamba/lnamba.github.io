@@ -393,20 +393,7 @@ fieldset input {
   line-height: 1.85em;
 }
 
-/*
-#webinfo li:first-child{
-  margin-top: 50px;
-}
-*/
-
-/*
-#webinfo li:last-child{
-  margin-bottom: 30px;
-}
-*/
-
-
-#getlocation, #getinfo {
+#getlocation, #getinfo, #getweather {
   margin: 20px;
 }
 
@@ -415,6 +402,26 @@ fieldset input {
   width: 80%;
   margin: 0 auto;
   margin-top: 50px;
+}
+
+#zipweather {
+  display: block;
+  margin: 20px auto;
+  height: 25px;
+  width: 75px; 
+}
+
+#weather input {
+  display: block;
+
+}
+
+#getweather {
+  display: inline;
+}
+
+#weathererror {
+  
 }
 
 /* CONTACT PAGE */
