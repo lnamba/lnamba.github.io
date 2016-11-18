@@ -102,7 +102,7 @@ function loadWeather(){
   var loc = document.getElementById("zipweather").value;
   // opens a GET request - includes the URL of the api data for getting weather by a user's zip code, also converts to imperial units
   // The end of the URL is the API key downloaded from the OpenWeatherMap site
-  httpRequest.open("GET","http://api.openweathermap.org/data/2.5/weather?zip=" + loc + ",us&units=imperial&appid=3313b9d0c68fb1fc126ff0ebed305e65", false);
+  httpRequest.open("GET","http://api.openweathermap.org/data/2.5/weather?zip=" + loc + ",us&units=imperial&appid=3313b9d0c68fb1fc126ff0ebed305e65", false, true);
   // sends the request
   httpRequest.send();
   console.log(httpRequest.status);
