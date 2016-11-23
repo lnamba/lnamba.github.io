@@ -150,7 +150,7 @@
             <!-- below are interest using checkboxes -->
             <div id="meminterests">
               <p><strong>Interests (Optional - Check all that apply):</strong></p>
-              <ul>
+              <ul id="interestUL">
                 <li><input type="checkbox" id="picnic" class="interests" value="Picnic"><label for="picnic" id="picnicid">Picnic</label></li>
                 <li><input type="checkbox" id="bowl" class="interests" value="Summer Bowling League"><label for="bowl" id="bowlid">Summer Bowling League</label></li>
                 <li><input type="checkbox" id="scholarship" class="interests" value="Scholarship Opportunities"><label for="scholarship" id="scholarshipid">Scholarship Opportunities</label></li>
@@ -181,11 +181,14 @@
 
             <input type="button" id="submitbutton" value="Join">
             <h2 id="membershiptotal">Total Membership Cost: <span id="total"></span></h2>
+            
             <div id="interestblock">
-              <p>Thank you for your interest in the following activities: <ul id="interestmessage"></ul></p>
-            <p>Here is the array with your selected elements turned into a string:</p>
-            <p id="arrayToString"></p>
+              <p>Thank you for your interest in the following activities:</p> <ul id="interestmessage">
+              </ul>
+              <p>Here is the array with your selected elements turned into a string:</p>
+              <p id="arrayToString"></p>
             </div>
+            
             </fieldset>
           </form>
         </section>
@@ -215,11 +218,13 @@
         </div>
       
 <!--      <input type="submit" id="submitbutton" name="submitbutton" value="Submit">-->
-      </div>
       <div id="footer">
         <a href="https://www.facebook.com/JACL-Arizona-Chapter-166321336752860/"><img src="images/facebook.png" alt="Facebook Logo" class="social-icon"></a>
         <footer>&copy; 2016 Lauren Namba</footer>
     </div> 
+    
+  <script src="jquery-3.1.1.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
     <script src="join.js"></script>
   </body>
 </html>
